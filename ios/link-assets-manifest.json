@@ -1,0 +1,125 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/brfLibrary_ui/assets/fonts/SF-Pro-Display-Black.ttf",
+      "sha1": "57cc214bdd6935326f23e31862f5722b213ad35b"
+    },
+    {
+      "path": "src/brfLibrary_ui/assets/fonts/SF-Pro-Display-BlackItalic.ttf",
+      "sha1": "00cc53379e83748fc6a8797e1fef270ca8eda1f2"
+    },
+    {
+      "path": "src/brfLibrary_ui/assets/fonts/SF-Pro-Display-Bold.ttf",
+      "sha1": "9aa1c5063288ce095ff748f3a29f1ae97e574f44"
+    },
+    {
+      "path": "src/brfLibrary_ui/assets/fonts/SF-Pro-Display-BoldItalic.ttf",
+      "sha1": "3102ed36b58219d0215ab55f34d8c2f910f38f8f"
+    },
+    {
+      "path": "src/brfLibrary_ui/assets/fonts/SF-Pro-Display-Heavy.ttf",
+      "sha1": "83c66c34ae1c958f24622ad67c80c3d978efbc03"
+    },
+    {
+      "path": "src/brfLibrary_ui/assets/fonts/SF-Pro-Display-HeavyItalic.ttf",
+      "sha1": "e6eeb83f8d2d4df7421ac1bc9d3c377081e0faf6"
+    },
+    {
+      "path": "src/brfLibrary_ui/assets/fonts/SF-Pro-Display-Light.ttf",
+      "sha1": "db2fde23e1cfb1c9fab6091ce0d508e77c3f3a7e"
+    },
+    {
+      "path": "src/brfLibrary_ui/assets/fonts/SF-Pro-Display-LightItalic.ttf",
+      "sha1": "8c256f108a0ead912bd9819be77833ee0a4f4249"
+    },
+    {
+      "path": "src/brfLibrary_ui/assets/fonts/SF-Pro-Display-Medium.ttf",
+      "sha1": "1bef6dc5312342e0beac0c62cad1526520ac5346"
+    },
+    {
+      "path": "src/brfLibrary_ui/assets/fonts/SF-Pro-Display-MediumItalic.ttf",
+      "sha1": "101224b41272a9de63d8436bf144bd1b75500738"
+    },
+    {
+      "path": "src/brfLibrary_ui/assets/fonts/SF-Pro-Display-Regular.ttf",
+      "sha1": "8c0d94e268fafa5b5f47f6948dba30e358bf2668"
+    },
+    {
+      "path": "src/brfLibrary_ui/assets/fonts/SF-Pro-Display-RegularItalic.ttf",
+      "sha1": "d25c87fa86a1873c74a011be64959828cc23a6a7"
+    },
+    {
+      "path": "src/brfLibrary_ui/assets/fonts/SF-Pro-Display-Semibold.ttf",
+      "sha1": "5de86bb1ae188886690e5401dcb880778d0f32cb"
+    },
+    {
+      "path": "src/brfLibrary_ui/assets/fonts/SF-Pro-Display-SemiboldItalic.ttf",
+      "sha1": "1c491f95d1912644e62908c9caef4f892ca6e387"
+    },
+    {
+      "path": "src/brfLibrary_ui/assets/fonts/SF-Pro-Display-Thin.ttf",
+      "sha1": "0a80b720a4f3c1b11622bc984f27df3dca868830"
+    },
+    {
+      "path": "src/brfLibrary_ui/assets/fonts/SF-Pro-Display-ThinItalic.ttf",
+      "sha1": "acff3f38cea652f703019b34afbab5ca05534e00"
+    },
+    {
+      "path": "src/brfLibrary_ui/assets/fonts/SF-Pro-Display-Ultralight.ttf",
+      "sha1": "925ef13c5472da4022d7a916df91c43e771b379f"
+    },
+    {
+      "path": "src/brfLibrary_ui/assets/fonts/SF-Pro-Display-UltralightItalic.ttf",
+      "sha1": "d02f6df1498d06e24cbbe08dc7c4e81c408fd1af"
+    },
+    {
+      "path": "src/brfLibrary_ui/assets/fonts/SF-Pro-Text-BoldItalic.ttf",
+      "sha1": "e33e401571728558955ab8ae51ce172dd8f117bc"
+    },
+    {
+      "path": "src/brfLibrary_ui/assets/fonts/SF-Pro-Text-HeavyItalic.ttf",
+      "sha1": "005d6f17fb4c4b30322221fe8c541975119fb7d0"
+    },
+    {
+      "path": "src/brfLibrary_ui/assets/fonts/SF-Pro-Text-LightItalic.ttf",
+      "sha1": "92f6e57d32f638715c14f5c823df3dd1e8409161"
+    },
+    {
+      "path": "src/brfLibrary_ui/assets/fonts/SF-Pro-Text-MediumItalic.ttf",
+      "sha1": "0e8b0355dd1d54e869190cb36f05fc93f5b787b4"
+    },
+    {
+      "path": "src/brfLibrary_ui/assets/fonts/SF-Pro-Text-RegularItalic.ttf",
+      "sha1": "325fc93f98c00bd054c4b867451473669dbf6ff2"
+    },
+    {
+      "path": "src/brfLibrary_ui/assets/fonts/SF-Pro-Text-SemiboldItalic.ttf",
+      "sha1": "0be300eef67f817b0654f43c8115f54dc2cded88"
+    },
+    {
+      "path": "src/brfLibrary_ui/assets/fonts/sf-pro-text-bold.ttf",
+      "sha1": "31667a859b586e079d2e6d9193b8d245c939adb6"
+    },
+    {
+      "path": "src/brfLibrary_ui/assets/fonts/sf-pro-text-heavy.ttf",
+      "sha1": "1b6502f1314bd6e1cb60ac6ad813201f4bda4b46"
+    },
+    {
+      "path": "src/brfLibrary_ui/assets/fonts/sf-pro-text-light.ttf",
+      "sha1": "f960741316ec9357c9fbf3bba498510d0daa7720"
+    },
+    {
+      "path": "src/brfLibrary_ui/assets/fonts/sf-pro-text-medium.ttf",
+      "sha1": "62f39df9906a56dc84d68caf2996940413e55525"
+    },
+    {
+      "path": "src/brfLibrary_ui/assets/fonts/sf-pro-text-regular.ttf",
+      "sha1": "cded5e96ac169b65519e822d4ae6428e2ada9f31"
+    },
+    {
+      "path": "src/brfLibrary_ui/assets/fonts/sf-pro-text-semibold.ttf",
+      "sha1": "eb4d4aa16e23ce6374667c66fc750501a34ac9a4"
+    }
+  ]
+}
