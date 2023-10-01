@@ -41,6 +41,7 @@ interface IResponseRequestBooks {
 
 interface IResponseData {
   list_name?: string;
+  display_name?: string;
   books?: IBooks;
   lists: IResponseRequestBooks[];
 }
@@ -52,6 +53,14 @@ export const useRequestBooks = () => {
   if (isData?.list_name) {
     return {
       data: isData.books,
+      labelCategorie: isData.display_name,
+      isLoading,
+    };
+  }
+  if (isData && isData[0]?.title) {
+    return {
+      data: isData,
+      labelCategorie: 'bestSeller',
       isLoading,
     };
   }

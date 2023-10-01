@@ -10,6 +10,7 @@ import {
   images,
   metric,
 } from '@/brfLibrary_ui';
+import ProfileRoute from '@/modules/Profile/presentation/routes';
 import { RouteName } from './RouteName';
 
 const Tab = createBottomTabNavigator();
@@ -47,8 +48,8 @@ const PublicStack = () => (
             <BottomLabelNavigation focused={focused} path={images.menu} />
           ),
         }}
-        name="i"
-        component={BooksRoute}
+        name={RouteName.PROFILE}
+        component={ProfileRoute}
       />
     </Tab.Navigator>
   </NavigationContainer>

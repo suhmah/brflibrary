@@ -1,13 +1,13 @@
 /* eslint-disable no-nested-ternary */
 import React, { useCallback, useState } from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, View } from 'react-native';
 import Metrics from '@/brfLibrary_ui/helpers/metric';
 import {
   IResponseCategories,
   useCategories,
-} from '@/modules/Books/presentation/domain/useCases/useCaseGetCategories';
+} from '@/modules/Books/domain/useCases/useCaseGetCategories';
 import { Chip } from '@/brfLibrary_ui';
-import { useBookCategories } from '@/modules/Books/presentation/domain/useCases/useCaseGetBooksCategorie';
+import { useBookCategories } from '@/modules/Books/domain/useCases/useCaseGetBooksCategorie';
 import { GapItem, Main } from './styles';
 import ItemChip from '../ItemChip';
 
@@ -25,7 +25,7 @@ export interface IItem {
 
 const Chips = () => {
   const { data } = useCategories();
-  const { request, requestAll } = useBookCategories();
+  const { request, requestAll, requestBestSellers } = useBookCategories();
 
   const [selected, setSelected] = useState('all');
 
@@ -55,14 +55,26 @@ const Chips = () => {
         data={data}
         renderItem={renderItem}
         ListHeaderComponent={
-          <Chip
-            label="All"
-            variant={selected === 'all' ? '@selected' : '@normal'}
-            onPress={() => {
-              requestAll();
-              setSelected('all');
-            }}
-          />
+          <View style={{ flexDirection: 'row' }}>
+            <Chip
+              label="All"
+              variant={selected === 'all' ? '@selected' : '@normal'}
+              onPress={() => {
+                requestAll();
+                setSelected('all');
+              }}
+            />
+            <GapItem />
+            <Chip
+              label="Best Sellers"
+              variant={selected === 'Sellers' ? '@selected' : '@normal'}
+              onPress={() => {
+                requestBestSellers();
+                setSelected('Sellers');
+              }}
+            />
+            <GapItem />
+          </View>
         }
         horizontal
         ItemSeparatorComponent={gapItem}

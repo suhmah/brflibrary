@@ -23,3 +23,10 @@ export const subtitle: TextStyle = {
   fontWeight: '700',
   color: baseColor.gray300,
 };
+export const subtitle_2: TextStyle = {
+  fontSize: fontSizes.subtitle,
+  fontFamily: 'SFProDisplay-Regular',
+  letterSpacing: 0,
+  fontWeight: '700',
+  color: baseColor.gray300,
+};

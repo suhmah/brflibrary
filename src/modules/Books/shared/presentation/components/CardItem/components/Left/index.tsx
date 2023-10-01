@@ -4,13 +4,13 @@ import { BRFLibraryText, metric } from '@/brfLibrary_ui';
 import TopCard from '../TopCard';
 import { iItemCard } from '../../../..';
 
-const Left = ({ item }: iItemCard) => {
+const Left = ({ item, save, onPress }: iItemCard) => {
   return (
     <View style={{ flex: 1 }}>
-      <TopCard title={item.title} subtitle={item.author} />
+      <TopCard onPress={onPress} save={save} item={item} />
       <BRFLibraryText
         variant="@description"
-        value={item.description}
+        value={item?.description || ''}
         style={{ marginTop: metric(13) }}
       />
     </View>

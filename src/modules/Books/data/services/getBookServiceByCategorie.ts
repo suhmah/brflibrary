@@ -7,6 +7,6 @@ export const useRequestListBooksCategorie = () => {
   return useMutation<string, unknown, string>(async (categorie) => {
     return queryClient.fetchQuery(['getBooks'], () =>
       getBookCategorieRepository(categorie),
-    ); 
+    );
   });
 };

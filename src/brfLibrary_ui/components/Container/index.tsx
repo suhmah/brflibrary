@@ -7,9 +7,10 @@ import { Margin } from '../Margin';
 interface IContainer {
   children?: React.ReactNode;
   noFlatList?: boolean;
+  title?: string;
 }
 
-const Container = ({ children, noFlatList }: IContainer) => {
+const Container = ({ children, noFlatList, title }: IContainer) => {
   return (
     <Main>
       {noFlatList ? (
@@ -17,7 +18,7 @@ const Container = ({ children, noFlatList }: IContainer) => {
       ) : (
         <ScrollView showsVerticalScrollIndicator={false}>
           <Wrapper>
-            <Header />
+            <Header title={title} />
             <Margin />
             {children}
           </Wrapper>

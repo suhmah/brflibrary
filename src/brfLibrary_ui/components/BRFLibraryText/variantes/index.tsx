@@ -5,6 +5,7 @@ export const variants = {
   '@title': titles.title,
   '@titleh2': titles.titleH2,
   '@subtitle': titles.subtitle,
+  '@subtitle2': titles.subtitle_2,
   '@body1': body.body_1,
   '@body2': body.body_2,
   '@description': body.description,
