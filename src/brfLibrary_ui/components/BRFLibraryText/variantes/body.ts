@@ -17,3 +17,11 @@ export const body_2: TextStyle = {
   color: baseColor.gray700,
   textAlign: 'center',
 };
+export const description: TextStyle = {
+  fontSize: fontSizes.description,
+  fontFamily: 'SFProDisplay-Regular',
+  letterSpacing: 0,
+  fontWeight: '500',
+  color: baseColor.gray700,
+  textAlign: 'center',
+};

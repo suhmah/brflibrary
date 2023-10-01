@@ -6,18 +6,23 @@ import { Margin } from '../Margin';
 
 interface IContainer {
   children?: React.ReactNode;
+  noFlatList?: boolean;
 }
 
-const Container = ({ children }: IContainer) => {
+const Container = ({ children, noFlatList }: IContainer) => {
   return (
     <Main>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <Wrapper>
-          <Header />
-          <Margin />
-          {children}
-        </Wrapper>
-      </ScrollView>
+      {noFlatList ? (
+        <Wrapper>{children}</Wrapper>
+      ) : (
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <Wrapper>
+            <Header />
+            <Margin />
+            {children}
+          </Wrapper>
+        </ScrollView>
+      )}
     </Main>
   );
 };

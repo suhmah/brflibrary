@@ -3,13 +3,12 @@ import React from 'react';
 import { Chip } from '@/brfLibrary_ui';
 import { IItem } from '../Chips';
 
-const ItemChip = ({ item }: IItem) => {
+const ItemChip = ({ item, onPress, selectedItem }: IItem) => {
   return (
     <Chip
-      label={item.label}
-      variant={
-        item.disable ? '@disable' : item.selected ? '@selected' : '@normal'
-      }
+      label={item.display_name}
+      variant={selectedItem === item.display_name ? '@selected' : '@normal'}
+      onPress={onPress}
     />
   );
 };

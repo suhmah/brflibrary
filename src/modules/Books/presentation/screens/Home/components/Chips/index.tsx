@@ -1,32 +1,15 @@
 /* eslint-disable no-nested-ternary */
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { FlatList } from 'react-native';
 import Metrics from '@/brfLibrary_ui/helpers/metric';
+import {
+  IResponseCategories,
+  useCategories,
+} from '@/modules/Books/presentation/domain/useCases/useCaseGetCategories';
+import { Chip } from '@/brfLibrary_ui';
+import { useBookCategories } from '@/modules/Books/presentation/domain/useCases/useCaseGetBooksCategorie';
 import { GapItem, Main } from './styles';
 import ItemChip from '../ItemChip';
-
-const mock = [
-  {
-    label: 'All books',
-    selected: true,
-    disable: false,
-  },
-  {
-    label: 'Best sellers',
-    selected: false,
-    disable: false,
-  },
-  {
-    label: 'Fiction',
-    selected: false,
-    disable: true,
-  },
-  {
-    label: 'Released',
-    selected: false,
-    disable: false,
-  },
-];
 
 export interface IMock {
   label: string;
@@ -35,13 +18,32 @@ export interface IMock {
 }
 
 export interface IItem {
-  item: IMock;
+  item: IResponseCategories;
+  onPress?: () => void;
+  selectedItem?: string;
 }
 
 const Chips = () => {
-  const renderItem = useCallback(({ item }: IItem) => {
-    return <ItemChip item={item} />;
-  }, []);
+  const { data } = useCategories();
+  const { request, requestAll } = useBookCategories();
+
+  const [selected, setSelected] = useState('all');
+
+  const renderItem = useCallback(
+    ({ item }: IItem) => {
+      return (
+        <ItemChip
+          selectedItem={selected}
+          item={item}
+          onPress={() => {
+            setSelected(item.display_name);
+            request(item.list_name_encoded);
+          }}
+        />
+      );
+    },
+    [selected, request],
+  );
 
   const gapItem = () => {
     return <GapItem />;
@@ -50,11 +52,22 @@ const Chips = () => {
   return (
     <Main>
       <FlatList
-        data={mock}
+        data={data}
         renderItem={renderItem}
+        ListHeaderComponent={
+          <Chip
+            label="All"
+            variant={selected === 'all' ? '@selected' : '@normal'}
+            onPress={() => {
+              requestAll();
+              setSelected('all');
+            }}
+          />
+        }
         horizontal
         ItemSeparatorComponent={gapItem}
         style={{ paddingLeft: Metrics(16) }}
+        showsHorizontalScrollIndicator={false}
       />
     </Main>
   );
