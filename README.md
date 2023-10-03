@@ -4,7 +4,7 @@
 > Configurar setup react-native cli.
 
 
-## Documentação da API
+## Documentação da APP
 
 #### Documentação sugerida:
 
