@@ -1,11 +1,10 @@
 import { api } from '@/api';
-import { categories } from './mocks';
 
 export const getCategoriesRepository = async () => {
   try {
-    /*  const response = await api.get('/lists/names.json');
-     */
-    return categories;
+    const response = await api.get('/lists/names.json');
+
+    return response.data;
   } catch (error) {
     return error;
   }

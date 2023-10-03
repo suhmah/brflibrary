@@ -11,48 +11,65 @@ import {
   metric,
 } from '@/brfLibrary_ui';
 import ProfileRoute from '@/modules/Profile/presentation/routes';
+import { useBookMarks } from '@/modules/Books/shared/Hooks/bookMarks';
 import { RouteName } from './RouteName';
 
 const Tab = createBottomTabNavigator();
 
-const PublicStack = () => (
-  <NavigationContainer>
-    <Tab.Navigator
-      screenOptions={{
-        headerShown: false,
-        tabBarStyle: {
-          backgroundColor: baseColor.lightBlue500,
-          borderTopStartRadius: metric(12),
-          borderTopEndRadius: metric(12),
-          padding: 0,
-          paddingHorizontal: metric(60),
-          height: metric(100),
-          paddingBottom: metric(33),
-        },
-      }}
-    >
-      <Tab.Screen
-        options={{
-          tabBarIcon: () => null,
-          tabBarLabel: ({ focused }) => (
-            <BottomLabelNavigation focused={focused} path={images.book} />
-          ),
+const PublicStack = () => {
+  const { init } = useBookMarks();
+  const initBooks = () => {
+    init();
+  };
+  return (
+    <NavigationContainer>
+      <Tab.Navigator
+        screenOptions={{
+          headerShown: false,
+          tabBarStyle: {
+            backgroundColor: baseColor.lightBlue500,
+            borderTopStartRadius: metric(12),
+            borderTopEndRadius: metric(12),
+            padding: 0,
+            paddingHorizontal: metric(60),
+            height: metric(100),
+            paddingBottom: metric(33),
+          },
         }}
-        name={RouteName.HOME}
-        component={BooksRoute}
-      />
-      <Tab.Screen
-        options={{
-          tabBarIcon: () => null,
-          tabBarLabel: ({ focused }) => (
-            <BottomLabelNavigation focused={focused} path={images.menu} />
-          ),
-        }}
-        name={RouteName.PROFILE}
-        component={ProfileRoute}
-      />
-    </Tab.Navigator>
-  </NavigationContainer>
-);
+      >
+        <Tab.Screen
+          listeners={{
+            tabPress: () => {
+              initBooks();
+            },
+          }}
+          options={{
+            tabBarIcon: () => null,
+            tabBarLabel: ({ focused }) => (
+              <BottomLabelNavigation focused={focused} path={images.book} />
+            ),
+          }}
+          name={RouteName.HOME}
+          component={BooksRoute}
+        />
+        <Tab.Screen
+          listeners={{
+            tabPress: () => {
+              initBooks();
+            },
+          }}
+          options={{
+            tabBarIcon: () => null,
+            tabBarLabel: ({ focused }) => (
+              <BottomLabelNavigation focused={focused} path={images.menu} />
+            ),
+          }}
+          name={RouteName.PROFILE}
+          component={ProfileRoute}
+        />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
+};
 
 export default PublicStack;

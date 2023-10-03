@@ -7,39 +7,24 @@ import {
   Header as HeaderLibrary,
   Margin,
 } from '@/brfLibrary_ui';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback } from 'react';
 import { FlatList, View } from 'react-native';
-import { getData } from '@/asyncStorage';
-import { IBooks } from '@/modules/Books/domain/useCases/useCaseGetBooks';
 import { iItemCard } from '@/modules/Books/presentation/screens/Home';
-import { saveBook } from '@/modules/Books/presentation/screens/Home/saveBook';
 import CardItem from '@/modules/Books/shared/presentation/components/CardItem';
+import { useBookMarks } from '@/modules/Books/shared/Hooks/bookMarks';
 import Actions from './components/Actions';
+import VoidList from './components/VoidList';
 
 const Home = () => {
-  const [data, setData] = useState<IBooks[]>();
-
-  const init = async () => {
-    const response = await getData();
-
-    setData(response);
-  };
-  useEffect(() => {
-    init();
-  }, []);
+  const { localItem, saveItem } = useBookMarks();
 
   const renderItem = useCallback(
     ({ item }: iItemCard) => {
       const save =
-        data &&
-        data?.filter(
+        localItem &&
+        localItem?.filter(
           (filterItem) => filterItem?.primary_isbn13 === item?.primary_isbn13,
         );
-
-      const saveItem = (itemSave?: IBooks) => {
-        saveBook(itemSave, data);
-        init();
-      };
 
       return (
         <CardItem
@@ -49,7 +34,7 @@ const Home = () => {
         />
       );
     },
-    [data],
+    [localItem, saveItem],
   );
   const space = () => {
     return <View style={{ height: 6 }} />;
@@ -81,11 +66,12 @@ const Home = () => {
     <Container noFlatList>
       <FlatList
         ListHeaderComponent={renderHeader}
-        data={data}
+        data={localItem}
         renderItem={renderItem}
         ItemSeparatorComponent={space}
         style={{ paddingBottom: metric(20) }}
         showsVerticalScrollIndicator={false}
+        ListEmptyComponent={<VoidList />}
       />
     </Container>
   );
