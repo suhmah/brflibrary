@@ -1,4 +1,6 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable import/no-extraneous-dependencies */
+import { APP_ID, BOOK_API } from '@env';
 import axios, { AxiosError, AxiosInstance, AxiosResponse } from 'axios';
 
 export enum HttpStatusCode {
@@ -17,15 +19,17 @@ class HttIdentity {
   api: AxiosInstance;
 
   constructor() {
+    console.log({ a: BOOK_API });
+
     this.api = axios.create({
-      baseURL: 'https://api.nytimes.com/svc/books/v3',
+      baseURL: BOOK_API,
       timeout: 60000,
       timeoutErrorMessage: 'Tempo limite da requisição excedido.',
       headers: {
         'Content-Type': 'application/json',
       },
       params: {
-        'api-key': 'dyF1AgWQP9Fozz7eaGbTNrchvJPAGKEA',
+        'api-key': APP_ID,
       },
     });
     this.initInterceptors();
