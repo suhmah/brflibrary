@@ -5,17 +5,16 @@ import {
   Margin,
   metric,
 } from '@/brfLibrary_ui';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback } from 'react';
 import { ActivityIndicator, FlatList, View } from 'react-native';
-import { getData } from '@/asyncStorage';
 import CardItem from '@/modules/Books/shared/presentation/components/CardItem';
+import { useBookMarks } from '@/modules/Books/shared/Hooks/bookMarks';
 import Header from './components/Header';
 import {
   IBooks,
   useRequestBooks,
 } from '../../../domain/useCases/useCaseGetBooks';
 import { WrapperList } from './styles';
-import { saveBook } from './saveBook';
 
 export interface iItemCard {
   item?: IBooks | null;
@@ -25,17 +24,7 @@ export interface iItemCard {
 
 const Home = () => {
   const { data, isLoading } = useRequestBooks();
-
-  const [localItem, setLocalItem] = useState<IBooks[] | undefined>();
-
-  const init = async () => {
-    const response = await getData();
-
-    setLocalItem(response);
-  };
-  useEffect(() => {
-    init();
-  }, []);
+  const { saveItem, localItem } = useBookMarks();
 
   const renderItem = useCallback(
     ({ item }: iItemCard) => {
@@ -45,11 +34,6 @@ const Home = () => {
           (filterItem) => filterItem?.primary_isbn13 === item?.primary_isbn13,
         );
 
-      const saveItem = (itemSave?: IBooks) => {
-        saveBook(itemSave, localItem);
-        init();
-      };
-
       return (
         <CardItem
           onPress={(book) => saveItem(book)}
@@ -58,7 +42,7 @@ const Home = () => {
         />
       );
     },
-    [localItem],
+    [localItem, saveItem],
   );
 
   const space = () => {

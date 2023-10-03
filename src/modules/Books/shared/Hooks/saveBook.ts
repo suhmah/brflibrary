@@ -1,5 +1,5 @@
 import { setData } from '@/asyncStorage';
-import { IBooks } from '../../../domain/useCases/useCaseGetBooks';
+import { IBooks } from '../../domain/useCases/useCaseGetBooks';
 
 export const saveBook = (books?: IBooks, localItem?: IBooks[]) => {
   if (localItem) {
